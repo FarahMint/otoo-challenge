@@ -4,7 +4,7 @@
           <div class="input-field">
               <label for="search"></label>
                 <input 
-                id="SearchApts" 
+                id="Searchfeeds" 
                 placeholder="Start typing..."
                 name="search" 
                 type="text"
