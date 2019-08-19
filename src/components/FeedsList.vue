@@ -1,13 +1,21 @@
 
 <template>
+<div class="list-container">
 
-    <div>
-        <feed-item 
-         v-for="(item , index) in feeds"
-         :feed="item"
+   
+  <h1>Your essential playlists...</h1>
+
+  <b-row>
+    
+      <feed-item 
+        v-for="(item , index) in feeds"
+        :feed="item"
         :index="index"
-        :key="item.id"/>         
-    </div>
+        :key="item.id"/> 
+  </b-row>
+               
+ 
+ </div>
 </template>  
 
 <script>
@@ -16,32 +24,30 @@ import FeedItem from "./FeedItem";
 export default {
     name:"FeedsList",
     props:["feeds"],
-    components:{ "feed-item": FeedItem
-    }// components
+    components:{ "feed-item": FeedItem },  
 }
+
 </script>
 
-
-<style >
-
  
-h1{
-  color:#fff;
-}
- .feed-list{
-  list-style: none;
-  margin:10px 5%;
-  font-size: 1.7rem;
-  color:#fff;
+<style scoped> 
 
-   width: 90vw;
-  margin: 0 auto;
-  max-width: 1200px;
-  display: grid;
-  /*parent div for all products*/
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
-
+ .list-container{
+    padding-top: 2rem;
+      padding-top: 2rem;
+    padding-right: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 90%;
  }
+
+ .list-container h1{
+   font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -.005em;
+    font-weight: 900;
+    text-transform: none;
+    margin: 24px 0;
+ }
+
 </style>

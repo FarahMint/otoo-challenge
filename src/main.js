@@ -1,13 +1,24 @@
+
+
 import Vue from 'vue';
+import './plugins/fontawesome'
 import App from './App.vue';
 
-import "../node_modules/materialize-css/dist/css/materialize.min.css";
-import "../node_modules/materialize-css/dist/js/materialize.min.js";
+
+/** style plugin in  app entry point */
+import BootstrapVue from 'bootstrap-vue';
+/**  css files */
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+import './assets/style.css';
 
 /** import router */
 import router from "./router";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+Vue.use(BootstrapVue);
 
 new Vue({
   router ,

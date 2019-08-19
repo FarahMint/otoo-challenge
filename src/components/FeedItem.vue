@@ -1,17 +1,17 @@
 <template>
-       <div class="card">
-            <div class="card-image">
-                <img  v-bind:src="feed.index.label.replace(/55x55bb.png/gi, '140x140bb.png')">
-            </div><!--.card-image-->
-            <div class="card-content">
-                <h3>{{ feed.title |truncate(15)|tailing('...')}}</h3>
-                <p>{{ feed.artist }}</p>
-            </div><!--.card-content-->
-
-            <div class="card-action">
-            <a href="#">This is a link</a>
-            </div><!--.card-action-->
-       </div><!--.card-->
+  <b-col  sm="6" md="4" lg="2"> 
+    
+    <b-card
+    v-on:click="goTodetail(feed.id)"
+    v-bind:img-src="feed.image"
+    v-bind:img-alt="feed.title"
+    >
+      <b-card-text>
+        <!-- <h3>{{ feed.title |truncate(15)|tailing('...')}}</h3> -->
+        <p>{{ feed.artist }}</p>
+      </b-card-text>
+    </b-card>
+  </b-col> 
 </template>
 
 <script>
@@ -19,9 +19,9 @@ export default {
     name:"feed-item",
     props:["feed"],
      methods:{
-       requestDelete: function(){
-           this.$parent.$emit("delete", this.feeds);
-       }, // request delete
+       goTodetail(feedId) {
+      this.$router.push({name:'Feed', params:{id:feedId}});
+       }
     },//methods
     filters: {
     truncate: function(value, limit) {
@@ -30,13 +30,36 @@ export default {
     tailing: function(value, tail) {
       return value + tail;
     }//tailing
-  },//filter  
+  }//filter  
 }
 </script>
 
 <style>
+ .card {
+    background-color: transparent;
+    border: none;
+    border-radius: 0.25rem;
+      cursor:pointer;
+      text-align: center;
+     
+}
+ .card-body {
+ padding: 0;
+}
+
  
 
+.col-lg-3, .col-md-4 {
+  margin-bottom: 1rem!important;
+}
+
+h3, p{
+      font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: .025em;
+font-weight: 700;
+    text-transform: lowercase;
+}
 
 </style>
 
