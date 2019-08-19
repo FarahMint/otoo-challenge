@@ -1,7 +1,11 @@
 <template>
     <div>
+      <Loader v-if="loading"/>
+      
+      <div v-else>
         <search-feed @searchRecords="searchFeedRecord" />
         <feeds-list  :feeds= "searchFeeds" />
+      </div>
     </div>
 </template>
 
@@ -13,6 +17,7 @@ import {getAllFeeds, formatAPI} from "../FeedService";
 // /** import components */
 import SearchForm from "../components/SearchForm";
 import FeedsList  from "../components/FeedsList";
+import Loader from "../components/Loader";
 
 
 export default {
@@ -20,14 +25,16 @@ export default {
      props:["mode"],
     components:{ 
       "search-feed": SearchForm,
-        "feeds-list": FeedsList,
+      "feeds-list": FeedsList,
+      Loader,
+
     },// components
    
     data(){
         return{
             feeds:[],
-            
             searchTerms:"",
+            loading: false,
             
         }
     },
@@ -37,6 +44,7 @@ export default {
 
     methods:{
       geetFeeds: function(){
+        this.loading=true;
           getAllFeeds()
         .then(result =>{
           let feeds=  result.feed.entry;
@@ -44,6 +52,8 @@ export default {
           let formatFeed = feeds.map(item=> formatAPI(item));//end map  
           // initialize feeds data
          this.feeds= formatFeed;
+
+         this.loading=false;
           // this.categoryFeed()
       })
       .catch( error => { console.log(error); });
@@ -61,6 +71,7 @@ export default {
   //   return this.label;
   //   }//end categoryFeed
   },//end methods
+    
 
   computed:{
     searchFeeds: function(){
@@ -75,8 +86,3 @@ export default {
   }//end computed
 }
 </script>
-
-
-<style>
-
-</style>

@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style  scoped lang="scss">
 header{
     display:flex;
     justify-content: space-between;
@@ -38,35 +38,21 @@ header{
     padding:0px 25px;
     height:60px;
     width:100vw;
-
-
     position:fixed;
     z-index: 100;
+
+    .home-icon{
+        color:$mainWhite;
+        font-size:2rem; 
+    }
+
 }
-.dark header{
- background:#152028;
+/* screen with less than 768px*/
+@media screen and (max-width: 768px) {
+    header h1{
+    font-size:1.5rem; 
+    }
 }
 
-.light header{
- background:#313131;
-}
 
-.home-icon{
-    color:#fff;
-}
-
-.light a.nav-link:hover .home-icon{
-color:#ddd;
- 
-}
-.dark a.nav-link:hover .home-icon{
- background:#101520;
- color: #ddd;
-}
-
-.home-icon{
-   color:none;
-   font-size:2rem;
-    
-}
 </style>

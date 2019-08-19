@@ -13,68 +13,71 @@
 <script>
 export default {
      props:["mode"],
-    
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .toggle{
-    position:relative;
-    display:inline-block;
-    width:60px;
-    height:34px;
-}
-.toggle input{
-   opacity:0;
-   width:0;
-   height:0;
-}
+position:relative;
+display:inline-block;
+width:60px;
+height:34px;
 
-.toggler{
+    .toggle input{
+    opacity:0;
+    width:0;
+    height:0;
+    background-color: transparent;
+    }
+
+    .toggler{
     position:absolute;
     cursor:pointer;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    background:#152028;
+    background:$blackPearl;
     -webkit-transition: .4s;
     transition: .4s;
-}
+    }
 
-
-.toggler:before{
-     position:absolute;
-     content:"";
-     height:26px;
-     width:26px;
-    left:7px;
+    .toggler:before{
+    position:absolute;
+    content:"";
+    height:26px;
+    width:26px;
+    left:4px;
     bottom:4px;
-    background:#fff;
+    background:$mainWhite;
     -webkit-transition: .4s;
     transition: .4s;
-}
+    }
+
+    input:checked  + .toggler{
+    background:$darkGreen;
+    }
+
+    input:focus  + .toggler{
+    box-shadow: 0 0 2px $darkGreen;
+    }
+
+    input:checked  + .toggler:before{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    }
 
 
-input:checked  + .toggler{
- background:#219693;
-}
-input:focus  + .toggler{
-box-shadow: 0 0 2px #219693;
-}
+    .toggler.round{
+     border-radius:36px;
+    }
 
-input:checked  + .toggler:before{
- -webkit-transform: translateX(26px);
- -ms-transform: translateX(26px);
- transform: translateX(26px);
-}
-
-
-.toggler.round{
-    border-radius:36px;
-}
-.toggler.round:before{
+    .toggler.round:before{
     border-radius: 50%;
-}
+    }
+
+}/*end toggle*/
+
 </style>

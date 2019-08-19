@@ -1,7 +1,9 @@
 <template>
+<div>
+
+
 
 <b-container fluid :class="mode">
- 
   <b-row>
     <b-col cols="12">
        
@@ -17,8 +19,9 @@
          </transition>
     </b-col>
   </b-row>
-  <Footer/>
 </b-container>
+  <Footer/>
+</div>
 </template>
 
 <script>
@@ -27,11 +30,12 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+
 export default {
   name: 'app',
   components: {
     Header,
-    Footer
+    Footer,
   },
   data(){
     return {
@@ -50,60 +54,80 @@ export default {
   
 }
 </script>
+ 
+<style lang="scss">
 
-<style>
-
-/* remove padding for nav  */
 .container-fluid {
   padding-left:0!important;
-  transition: background .5s ease,
-}
+  transition: background .5s ease;
 
-.content{
-  margin-top:5rem;
-}
+  .content{
+  margin:5rem auto;
 
- a.nav-link , a.router-link-active, a.router-link-exact-active{
-   text-decoration:none;
- }
+  /* ANIMATION*/
+    .view-enter-active,  .view-leave-active{
+      transition:opacity .5s ease-in-out, transform ease;
+    }
+    .view-enter-active{
+      transition-delay:.5s;
+    }
+      .view-enter{
+      opacity:0;
+      transform:translateY(-100px);
+      }
+      .view-enter-to {
+      opacity:1;
+      transform:translateX(0px);
+      }
+      .view-leave-to{
+      opacity:0;
+      transform:translateY(0px);
+      }
+      .view-leave{
+      opacity:1;
+      transform:translateX(0px);
+      }
+     /* end ANIMATION*/  
+
+  }/* end content */
+
+}/* end container-fluid */
 
 
- .view-enter-active,  .view-leave-active{
-   transition:opacity .5s ease-in-out, transform ease;
- }
-
- .view-enter-active{
-    transition-delay:.5s;
-
- }
-
-  .view-enter   {
-    opacity:0;
-transform:translateY(-100px);
-  }
-  .view-enter-to {
-    opacity:1;
-    transform:translateX(0px);
-
-  }
-
-  .view-leave-to{
-    opacity:0;
-transform:translateY(0px);
-  }
-
-  .view-leave{
-     opacity:1;
-    transform:translateX(0px);
-  }
- 
-
+/* TOGGLE MODE BTW DARKER AND LIGHER COLOR*/
 .light{
-   background:#f3f3f3;
-   color:#152028;
- }
+  background:$mainWhite;
+  color: $blackPearl;
+  transition: $transition;
+
+  header{
+    background:#313131;
+
+    & h1{
+    color:$darkGreen; 
+    }
+  }
+
+  a.nav-link:hover .home-icon{
+    color:$lightGrey;
+  }
+}/* end light */
+
  .dark{
-   background:#192734;
-   color:#f3f3f3;
- }
+  background:$mainBlueDark;
+   color:$mainWhite;
+   transition: $transition;
+
+    header{
+    background:$blackPearl;
+    }
+
+    a.nav-link:hover .home-icon{
+    background : $lightBlack;
+    color: $lightGrey;
+    }
+ }/**end dark*/
+
+ /* TOGGLE MODE BTW DARKER AND LIGHER COLOR*/
+
 </style>

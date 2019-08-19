@@ -78,36 +78,46 @@ export default {
 </script>
 
 
-<style scoped>
-
-
+<style scoped lang="scss">
 
 .playlist{
     padding-top: 2rem;
     padding-right: 2rem;
     margin: 0 auto;
-        height: 100vh;
+    height: 100vh;
     max-width: 1480px;
-}
 
-.card-body {
-    text-align: initial;
-}
-.card-img {
-    width: initial;
-}
+    .card-body {
+      text-align: initial;
+    }
+    .card-img {
+      width: initial;
+    }
+
+    .arrow-up-icon{
+      -ms-transform: rotate(50deg); /* IE 9 */
+      -webkit-transform: rotate(50deg); /* Safari 3-8 */
+      transform: rotate(50deg);
+      font-size:1.25rem
+    }
+
+    .line{
+      margin-top: 2rem;
+      border-bottom: 1px solid $darkGrey;
+    }
 
 
-.arrow-up-icon{
-  -ms-transform: rotate(50deg); /* IE 9 */
-  -webkit-transform: rotate(50deg); /* Safari 3-8 */
-  transform: rotate(50deg);
-  font-size:1.25rem
-}
+    /* screen with less than 768px*/
+    @media screen and (max-width: 768px) {
+        .card-body{
+          text-align: center;
+          margin-top: 1rem;
+      }
+    }
 
-.line{
-    margin-top: 2rem;
-    border-bottom: 1px solid #495057;
-}
+  }/* end playlist */
+
+
+
 
 </style>

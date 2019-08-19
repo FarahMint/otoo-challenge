@@ -18,6 +18,8 @@
     class="search-icon"
     icon="search" 
     aria-hidden="true"
+    aria-label="search button icon"
+    title="click to start your search"
      @click="show = !show"
     ></font-awesome-icon>   
 </div>
@@ -36,6 +38,7 @@ export default {
   },//data
   watch:{
       searchItem: function(){
+        
           this.$emit('searchRecords', this.searchItem);
       }
   }
@@ -44,34 +47,39 @@ export default {
 </script>
 
 
-<style >
+<style  lang="scss">
 
 
 .form-container{
-    margin: 2rem 0; 
-    position:relative;
-}
+  margin: 2rem 0; 
+  position:relative;
 
-.search-icon{
-      position: absolute;
-      top: 2px;
+  .search-icon{
+    position: absolute;
+    top: 2px;
     right: 20px;
-
     font-size:2rem;
     cursor: pointer;
-}
+      &:hover{
+      color:$darkGreen;
+    }
+  }/**end search icon/
 
-/* Enter and leave animations can use different */
-/* durations and timing functions.              */
-.slide-fade-enter-active {
-  transition: all .4s ease;
-}
-.slide-fade-leave-active {
-  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateX(100px);
-  opacity: 0;
-}
+
+  /*ANIMATION*/
+  /* Enter and leave animations  */
+  /* durations and timing functions. */
+  .slide-fade-enter-active {
+    transition: all .4s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+}/**end form-container*/
 
 </style>

@@ -7,18 +7,19 @@
     margin:0;
     padding:0;
   }
- 
- 
+
+
 body{
   font-family: "Roboto Slab", sans-serif;
   font-weight: 300;
   position: relative;
- 
-  /* background: rgb(62, 76, 91); */
-  /* background-image: linear-gradient(90deg,#af2896,#509bf5); */
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   width: 100%;
   font-size: 1rem;
   line-height: 1.4;
+  background: #192734;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +34,8 @@ li{
 }
 
 .container-fluid {
-  height:100%;
+  flex: 1;
+  
   }
  
  

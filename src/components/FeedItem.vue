@@ -33,33 +33,33 @@ export default {
   }//filter  
 }
 </script>
-
-<style>
- .card {
-    background-color: transparent;
-    border: none;
-    border-radius: 0.25rem;
-      cursor:pointer;
-      text-align: center;
-     
-}
- .card-body {
- padding: 0;
-}
-
  
+<style  lang="scss">
+ .card {
+  background-color: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  cursor:pointer;
+  text-align: center;
+     
+    .card-body {
+    padding: 0;
+    }
 
-.col-lg-3, .col-md-4 {
-  margin-bottom: 1rem!important;
-}
+    .col-lg-3, .col-md-4 {
+      margin-bottom: 1rem!important;
+    }
 
-h3, p{
+    h3, p{
       font-size: 1rem;
-    line-height: 20px;
-    letter-spacing: .025em;
-font-weight: 700;
-    text-transform: lowercase;
-}
+      line-height: 20px;
+      letter-spacing: .025em;
+      font-weight: 700;
+      text-transform: lowercase;
+    }
+
+ }/**end card*/
+
 
 </style>
 
