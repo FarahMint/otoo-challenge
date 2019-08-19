@@ -3,7 +3,7 @@
 <div class="form-container">
    <transition name="slide-fade">
   <b-form v-show="show">
-    <label class="sr-only" for="Searchfeeds" >Name</label>
+    <label class="sr-only" for="Searchfeeds" >top 100 songs search</label>
     <b-input
     type="text"
     id="Searchfeeds"
@@ -38,10 +38,9 @@ export default {
   },//data
   watch:{
       searchItem: function(){
-        
           this.$emit('searchRecords', this.searchItem);
-      }
-  }
+      }//end  searchItem
+  }//watch
 
 } // export
 </script>

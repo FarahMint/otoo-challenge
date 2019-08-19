@@ -7,11 +7,17 @@
             @change="$emit('toggle')"
             >
             <span class="toggler round"></span>
+        
         </label>
     </div>
 </template>
+
 <script>
+/**
+ * 
+ */
 export default {
+      /** props from parent App to control toggle between dark and light color */
      props:["mode"],
 }
 </script>

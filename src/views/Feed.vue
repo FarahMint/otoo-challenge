@@ -5,42 +5,36 @@
     <b-row no-gutters>
       <b-col md="6">
         <b-card-img 
-        :src="feedSelected.image"
+        :src="feedSelected.image || 'no-image-available.png'"
         :alt="feedSelected.title"
         class="rounded-0"></b-card-img>
       </b-col>
       <b-col md="6">
-        <b-card-body title="Horizontal Card">
+        <b-card-body>
           <b-card-text>
-          <h5 class="mt-0">{{ feedSelected.title }}</h5>
-      <p> {{ feedSelected.artist}}</p>
-      <p> {{ feedSelected.label }} - {{ feedSelected.dateRelease}}</p> 
-      <b-button :href="feedSelected.href" variant="primary" target="_blank">seen on Apple Music
-              <font-awesome-icon 
-    class="arrow-up-icon"
-    icon="arrow-up" 
-    aria-hidden="true"
-    ></font-awesome-icon>  
-
-      </b-button>
-
-   
+            <h5 class="mt-0">{{ feedSelected.title }}</h5>
+            <p> {{ feedSelected.artist}} - {{ feedSelected.label }}</p>
+            <p> Released on {{ feedSelected.dateRelease}}</p> 
+            <b-button :href="feedSelected.href" variant="primary" target="_blank">Check on Apple Library
+                    <font-awesome-icon 
+                    class="arrow-up-icon"
+                    icon="arrow-up" 
+                    aria-hidden="true"
+                    ></font-awesome-icon>  
+            </b-button>
           </b-card-text>
         </b-card-body>
       </b-col>
     </b-row>
   </b-card>
 
-<div class="line"></div>
+  <div class="line"></div>
  </section>
-
-
- 
 </template>
 
 
 <script>
-
+/** import helper function */
 import {getAllFeeds, formatAPI} from "../FeedService";
  
 
@@ -50,6 +44,7 @@ export default {
    
     data(){
         return{
+          /** get id from url */
         feedId:this.$route.params.id,
         feedSelected:"",
         title:"feed",
@@ -61,6 +56,7 @@ export default {
 
     methods:{
         geetFeed: function(){
+           /** fetch data from API -  func imported  from FeedService */
             getAllFeeds().then(result =>{
             let feeds=  result.feed.entry;
 
@@ -89,10 +85,19 @@ export default {
 
     .card-body {
       text-align: initial;
+      font-weight: 100;
     }
     .card-img {
       width: initial;
     }
+
+    .card h3, .card p {
+     font-weight: 100; 
+     }
+
+    p {
+    margin: .5rem;
+      }
 
     .arrow-up-icon{
       -ms-transform: rotate(50deg); /* IE 9 */

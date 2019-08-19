@@ -11,7 +11,7 @@
 
 
 <script>
-/** import service */
+/** import helper function */
 import {getAllFeeds, formatAPI} from "../FeedService";
 
 // /** import components */
@@ -27,15 +27,13 @@ export default {
       "search-feed": SearchForm,
       "feeds-list": FeedsList,
       Loader,
-
     },// components
    
     data(){
         return{
             feeds:[],
             searchTerms:"",
-            loading: false,
-            
+            loading: false,      
         }
     },
     mounted(){
@@ -44,39 +42,36 @@ export default {
 
     methods:{
       geetFeeds: function(){
+        // 1 - display loader
         this.loading=true;
+        /** 2 - fetch data from API -  func imported  from FeedService */
           getAllFeeds()
+        /** 3 - get result */
         .then(result =>{
           let feeds=  result.feed.entry;
               //  format feed api to get easier access to data      
           let formatFeed = feeds.map(item=> formatAPI(item));//end map  
           // initialize feeds data
          this.feeds= formatFeed;
-
          this.loading=false;
-          // this.categoryFeed()
       })
       .catch( error => { console.log(error); });
     }, 
 
   searchFeedRecord: function(terms){
-            this.searchTerms= terms;
-        },//end searchFeedRecord
-
-  // categoryFeed: function(){      
-  //   // set accept only unique value
-  //   //check what kind of val we have for the lagel/genre
-  //   this.label= [...new Set(this.feeds.map(item => item.label))];
-  //   console.log(this.label);
-  //   return this.label;
-  //   }//end categoryFeed
+    this.searchTerms= terms;
+    },//end searchFeedRecord
   },//end methods
     
 
   computed:{
+     /**
+      * serie of test to get matching item
+      * user can either seach by artist name or title
+      * returned array bind to feeds props on feeds-list tag
+      */
     searchFeeds: function(){
       return this.feeds.filter(item =>{
-        // serie of test
         return(
           item.artist.toLowerCase().match( this.searchTerms.toLowerCase())||
           item.title.toLowerCase().match( this.searchTerms.toLowerCase())

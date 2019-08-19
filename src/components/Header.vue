@@ -1,28 +1,26 @@
 <template>
-<header>
-       <h1>FeedMuz</h1>
-
-       <Toggle 
-       :mode="mode"
-       @toggle="$emit('toggle')"/> 
- 
-      <b-nav-item active><router-link to="/">
-    <font-awesome-icon 
-    class="home-icon"
-    icon="home" 
-    aria-hidden="true"
-    ></font-awesome-icon> 
-      </router-link></b-nav-item>
-        
-  
-</header>
- 
+    <header>
+        <h1>FeedMuz</h1>
+        <Toggle 
+        :mode="mode"
+        @toggle="$emit('toggle')"/> 
+    
+        <b-nav-item><router-link to="/">
+        <font-awesome-icon 
+        class="home-icon"
+        icon="home" 
+        aria-hidden="true"
+        ></font-awesome-icon> 
+        </router-link></b-nav-item>   
+    </header>
 </template>
 
 <script>
+/** import components */
 import Toggle from "./Toggle";
 
 export default {
+    /** props from parent App to control toggle between dark and light color */
     props:["mode"],
     components:{
         Toggle

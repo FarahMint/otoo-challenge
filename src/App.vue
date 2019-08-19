@@ -1,32 +1,26 @@
 <template>
-<div>
+  <div>
+    <b-container fluid :class="mode">
+      <b-row>
+        <b-col cols="12">
+          <Header :mode='mode' @toggle="toggle"/>
+        </b-col>
+      </b-row>
 
-
-
-<b-container fluid :class="mode">
-  <b-row>
-    <b-col cols="12">
-       
-           <Header :mode='mode' @toggle="toggle"/>
-    </b-col>
-  </b-row>
-
-
-  <b-row>
-    <b-col cols="12" class="content">
-      <transition name="view">
-       <router-view  :mode='mode'/>
-         </transition>
-    </b-col>
-  </b-row>
-</b-container>
-  <Footer/>
-</div>
+      <b-row>
+        <b-col cols="12" class="content">
+          <transition name="view">
+          <router-view  :mode='mode'/>
+            </transition>
+        </b-col>
+      </b-row>
+    </b-container>
+    <Footer/>
+  </div>
 </template>
 
 <script>
-
-/** import component */
+/** import components */
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -36,32 +30,33 @@ export default {
   components: {
     Header,
     Footer,
-  },
+  }, // components
   data(){
     return {
       mode:"dark"
     }
-  },
+  }, // data
+
   methods:{
+      /**  control mode - btw dark and light color */
     toggle: function(){
       if (this.mode ==="dark"){
         this.mode ="light";
       }else{
        this.mode ="dark"; 
       }
-    }
-  }
-  
-}
+    }//toggle
+  }//methods 
+}// default 
 </script>
  
 <style lang="scss">
 
 .container-fluid {
   padding-left:0!important;
-  transition: background .5s ease;
+  transition: background .5s ease; // mode transition btw dark and light color
 
-  .content{
+  .content{ // some breathing space between nav and main content
   margin:5rem auto;
 
   /* ANIMATION*/

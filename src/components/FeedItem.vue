@@ -7,7 +7,6 @@
     v-bind:img-alt="feed.title"
     >
       <b-card-text>
-        <!-- <h3>{{ feed.title |truncate(15)|tailing('...')}}</h3> -->
         <p>{{ feed.artist }}</p>
       </b-card-text>
     </b-card>
@@ -17,20 +16,14 @@
 <script>
 export default {
     name:"feed-item",
+      /** props from parent FeedsList  */
     props:["feed"],
      methods:{
+         /** go to details page of item targeted */
        goTodetail(feedId) {
       this.$router.push({name:'Feed', params:{id:feedId}});
-       }
-    },//methods
-    filters: {
-    truncate: function(value, limit) {
-      return value.substring(0, limit)
-    },//truncate
-    tailing: function(value, tail) {
-      return value + tail;
-    }//tailing
-  }//filter  
+       }//goTodetail
+    },//methods 
 }
 </script>
  
