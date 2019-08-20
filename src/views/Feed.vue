@@ -5,7 +5,7 @@
     <b-row no-gutters>
       <b-col md="6">
         <b-card-img 
-        :src="feedSelected.image || 'image-not-available.jpg'"
+        :src="feedSelected.image || ''"
         :alt="feedSelected.title"
         class="rounded-0"></b-card-img>
       </b-col>
@@ -72,7 +72,7 @@ export default {
                 }
               });//end filter
             })
-            .catch( error => { console.log(error); });
+            .catch( error => { throw error; });
         }, //end  geet Feed
       
     }//end methods

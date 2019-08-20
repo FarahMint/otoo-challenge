@@ -55,7 +55,7 @@ export default {
          this.feeds= formatFeed;
          this.loading=false;
       })
-      .catch( error => { console.log(error); });
+      .catch( error => {  throw error; });
     }, 
 
   searchFeedRecord: function(terms){
