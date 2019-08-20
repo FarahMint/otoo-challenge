@@ -3,10 +3,10 @@ A web app created with vue, bootstrap-vue and  using the iTunes API.
 
 
 ## 🧐 What user can do?
- user can filter according to 
- 	1.	User can search for the top 100 song
-	2.	User can see see more information about a selected Album 
-	3.	User can change the main color scheme of the web app from night mode to day mode 
+
+ 1.	User can search for the top 100 song
+ 2.	User can see see more information about a selected Album 
+ 3.	User can change the main color scheme of the web app from night mode to day mode 
 
 
 
