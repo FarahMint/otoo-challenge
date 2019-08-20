@@ -1,6 +1,9 @@
 <template>
     <footer>
-      <span>FeedMuz</span>
+      <span>Muz<font-awesome-icon 
+        icon="music" 
+        aria-hidden="true"
+        ></font-awesome-icon></span>
     </footer>
 </template>
 

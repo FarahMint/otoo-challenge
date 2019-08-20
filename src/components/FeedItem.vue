@@ -8,6 +8,7 @@
     >
       <b-card-text>
         <p>{{ feed.artist }}</p>
+
       </b-card-text>
     </b-card>
   </b-col> 
@@ -17,7 +18,13 @@
 export default {
     name:"feed-item",
       /** props from parent FeedsList  */
-    props:["feed"],
+    // props:["feed"],
+    props:{
+        feed:{
+            type:Object,
+            required:true,
+        }
+    },
      methods:{
          /** go to details page of item targeted */
        goTodetail(feedId) {

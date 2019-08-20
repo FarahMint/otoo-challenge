@@ -15,13 +15,10 @@
             <h5 class="mt-0">{{ feedSelected.title }}</h5>
             <p> {{ feedSelected.artist}} - {{ feedSelected.label }}</p>
             <p> Released on {{ feedSelected.dateRelease}}</p> 
-            <b-button :href="feedSelected.href" variant="primary" target="_blank">Check on Apple Library
-                    <font-awesome-icon 
-                    class="arrow-up-icon"
-                    icon="arrow-up" 
-                    aria-hidden="true"
-                    ></font-awesome-icon>  
-            </b-button>
+  
+            <b-button v-b-tooltip title="checkout on iTunes" variant="outline-success"
+              :href="feedSelected.href" target="_blank"><font-awesome-icon 
+              icon="music" aria-hidden="true"> </font-awesome-icon> </b-button>    
           </b-card-text>
         </b-card-body>
       </b-col>
@@ -37,17 +34,25 @@
 /** import helper function */
 import {getAllFeeds, formatAPI} from "../FeedService";
  
-
+ 
+/** tooltip doc from bootstrap
+ * https://bootstrap-vue.js.org/docs/components/tooltip
+ */
 export default {
     name: "Feed",
-     props:["mode"],
+      props:{
+        mode:{
+            type:String,
+            required:true,
+        }
+    },
+ 
    
     data(){
         return{
           /** get id from url */
         feedId:this.$route.params.id,
-        feedSelected:"",
-        title:"feed",
+        feedSelected:""
         }
     },//end data
 
@@ -60,15 +65,16 @@ export default {
             getAllFeeds().then(result =>{
             let feeds=  result.feed.entry;
 
-             feeds.filter(item=> {
+            feeds.filter(item=> {
             const {"im:id":id} = item.id.attributes;
-                if(id === this.$route.params.id ){
-                    this.feedSelected= formatAPI(item);
+              if(id === this.$route.params.id ){
+                this.feedSelected= formatAPI(item);
                 }
-            });//end filter
+              });//end filter
             })
             .catch( error => { console.log(error); });
-        }, //end  geetFeed
+        }, //end  geet Feed
+      
     }//end methods
 }
 </script>
@@ -121,8 +127,6 @@ export default {
     }
 
   }/* end playlist */
-
-
 
 
 </style>

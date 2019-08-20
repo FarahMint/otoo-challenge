@@ -3,7 +3,7 @@
     <b-container fluid :class="mode">
       <b-row>
         <b-col cols="12">
-          <Header :mode='mode' @toggle="toggle"/>
+          <Header :mode='mode' @toggle="toggle" />
         </b-col>
       </b-row>
 
@@ -33,7 +33,8 @@ export default {
   }, // components
   data(){
     return {
-      mode:"dark"
+      mode:"dark",
+   
     }
   }, // data
 
@@ -45,7 +46,8 @@ export default {
       }else{
        this.mode ="dark"; 
       }
-    }//toggle
+    },//toggle
+   
   }//methods 
 }// default 
 </script>
@@ -109,12 +111,12 @@ export default {
 }/* end light */
 
  .dark{
-  background:$mainBlueDark;
+  background-image: $gradient;
    color:$mainWhite;
    transition: $transition;
 
     header{
-    background:$blackPearl;
+    background: $mainBlack;
     }
 
     a.nav-link:hover .home-icon{

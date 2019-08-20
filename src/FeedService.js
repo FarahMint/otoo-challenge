@@ -27,6 +27,7 @@ const baseURL =`https://itunes.apple.com/us/rss/topalbums/limit=100/json`;
     // 3- return  new obj - with field we need
      return {id, label, artist, title, price, image ,href, rights, dateRelease};
     }//end formatAPI
+
  
     export {
         getAllFeeds,

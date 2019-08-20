@@ -1,6 +1,9 @@
 <template>
     <header>
-        <h1>FeedMuz</h1>
+        <h1>Muz<font-awesome-icon 
+        icon="music" 
+        aria-hidden="true"
+        ></font-awesome-icon> </h1>
         <Toggle 
         :mode="mode"
         @toggle="$emit('toggle')"/> 
@@ -21,7 +24,12 @@ import Toggle from "./Toggle";
 
 export default {
     /** props from parent App to control toggle between dark and light color */
-    props:["mode"],
+    props:{
+        mode:{
+            type:String,
+            required:true,
+        }
+    },
     components:{
         Toggle
     }

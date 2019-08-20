@@ -19,7 +19,8 @@ body{
   width: 100%;
   font-size: 1rem;
   line-height: 1.4;
-  background: #192734;
+  /* background: #192734; */
+  background-image: linear-gradient(to right bottom, rgb(39, 37, 39), rgb(0, 0, 0)), linear-gradient(transparent, rgb(0, 0, 0) 70%);
 }
 
 h1, h2, h3, h4, h5, h6 {

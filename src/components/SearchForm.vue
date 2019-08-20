@@ -28,7 +28,7 @@
 
 <script>
 export default {
-
+ 
   name: 'SearchForm',
   data(){
       return {
@@ -50,7 +50,7 @@ export default {
 
 
 .form-container{
-  margin: 2rem 0; 
+  margin: 2rem; 
   position:relative;
 
   .search-icon{

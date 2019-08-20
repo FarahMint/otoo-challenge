@@ -5,6 +5,7 @@
       <div v-else>
         <search-feed @searchRecords="searchFeedRecord" />
         <feeds-list  :feeds= "searchFeeds" />
+      
       </div>
     </div>
 </template>
@@ -22,7 +23,6 @@ import Loader from "../components/Loader";
 
 export default {
     name: "Home",
-     props:["mode"],
     components:{ 
       "search-feed": SearchForm,
       "feeds-list": FeedsList,
@@ -61,6 +61,7 @@ export default {
   searchFeedRecord: function(terms){
     this.searchTerms= terms;
     },//end searchFeedRecord
+ 
   },//end methods
     
 
@@ -77,6 +78,7 @@ export default {
           item.title.toLowerCase().match( this.searchTerms.toLowerCase())
         )
       })//end filter
+      
     },//end searchFeeds
   }//end computed
 }

@@ -3,7 +3,7 @@
         <label  class="toggle">
             <input 
             type="checkbox" 
-            :checked="(mode === 'dark') ? 'checked' :false "
+            :checked="(mode === 'dark') ? 'checked' :false"
             @change="$emit('toggle')"
             >
             <span class="toggler round"></span>
@@ -13,12 +13,16 @@
 </template>
 
 <script>
-/**
- * 
- */
+
+
 export default {
       /** props from parent App to control toggle between dark and light color */
-     props:["mode"],
+    props:{
+        mode:{
+            type:String,
+            required:true,
+        }
+    }
 }
 </script>
 
@@ -44,7 +48,7 @@ height:34px;
     left:0;
     right:0;
     bottom:0;
-    background:$blackPearl;
+    background:$mainBlack;
     -webkit-transition: .4s;
     transition: .4s;
     }
